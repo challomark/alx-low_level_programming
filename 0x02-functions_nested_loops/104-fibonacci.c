@@ -1,6 +1,7 @@
 #include <stdio.h>
+
 /**
- * main - fibonacci <3
+ * main - Entry point
  *
  * Return: Always 0 (success)
  */
