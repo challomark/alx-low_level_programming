@@ -8,29 +8,43 @@
 
 int main(void)
 {
-	int i, count;
-	unsigned int prev = 1, curr = 2, next;
-	unsigned int sum = prev + curr;
+	int count;
+	unsigned long fib1 = 0, fib2 = 1, sum;
+	unsigned long fib1_half1, fib1_half2, fib2_half1, fib2_half2;
+	unsigned int half1, half2;
 
-	printf("%u, %u", prev + curr);
-
-	for (count = 2; count < 98; count++)
+	for (count = 0; count < 92; count++)
 	{
-		next = prev + curr;
-		printf(", %u", next);
-		prev = curr;
-		curr = next;
-		sum  += (next % 2 == 0) ? next : 0;
+		sum = fib1 + fib2;
+		printf("%lu, ", sum);
+		fib1 = fib2;
+		fib2 = sum;
+	}
+	fib1_half1 = fib1 / 10000000000;
+	fib2_half1 = fib2 / 10000000000;
+	fib1_half2 = fib1 % 10000000000;
+	fib2_half2 = fib2 % 10000000000;
+
+	for (count = 93; count < 99; count++)
+	{
+		half1 = fib1_half1 + fib2_half1;
+		half2 = fib1_half2 + fib2_half2;
+		if (fib1_half2 + fib2_half2 > 9999999999)
+		{
+			half1 += 1;
+			half2 %= 10000000000;
+		}
+		printf("%lu%lu", half1, half2);
+		if (count != 98)
+			printf(", ");
+
+		fib1_half1 = fib2_half1;
+		fib1_half2 = fib2_half2;
+		fib2_half1 = half1;
+		fib2_half2 = half2;
 	}
 
 	printf("\n");
-	printf("Sum of even-valued terms: %u\n", sum);
 
-	/* Pad output with zeros */
-
-	for (i = 0; i < 1244 - 18 - 98 * 2; i++)
-	{
-		printf("0");
-	}
 	return (0);
 }
