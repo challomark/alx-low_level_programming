@@ -17,7 +17,7 @@ int main(void)
 	for (count = 2; count < 98; count++)
 	{
 		next = prev + curr;
-		printf(", %lu", next);
+		printf(", %u", next);
 		prev = curr;
 		curr = next;
 		sum  += (next % 2 == 0) ? next : 0;
@@ -26,7 +26,7 @@ int main(void)
 	printf("\n");
 	printf("Sum of even-valued terms: %u\n", sum);
 
-	/*Pad output with zeros */
+	/* Pad output with zeros */
 
 	for (i = 0; i < 1244 - 18 - 98 * 2; i++)
 	{
