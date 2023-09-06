@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stddef.h>
+#include <string.h>
 
 /**
  * is_palindrome - Checks if a string is a palindrome
@@ -10,26 +11,24 @@
 
 int is_palindrome(char *s)
 {
-	int length = 0;
-	int a, b;
+	/* Initialize two pointers, one at the beginning */
+	/* and one at the end of the string */
+	char *start = s;
+	char *end = s + strlen(s) - 1;
 
 	/* Check if the input string is NULL */
-	if (s == NULL)
+	if (s == NULL || strlen(s) == 0)
 		return (0);
-
-	/* Calculate the length of the input string */
-	while (s[length] != '\0')
-		length++;
-
-	/* Compare characters from the beginning and end of the string */
-	for (a = 0, b = length - 1; a < b; a++, b--)
+	while (start < end)
 	{
-		/* If characters at positions a and b don't match... */
+		/* If characters at the two pointers don't match */
 		/* it's not a palindrome */
-		if (s[a] != s[b])
+		if (*start != *end)
 			return (0);
+		/* Move the pointers towards each other */
+		start++;
+		end--;
 	}
-
 	/* If we reach this point, the string is a palindrome */
 	return (1);
 }
