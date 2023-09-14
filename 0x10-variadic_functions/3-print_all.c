@@ -32,14 +32,13 @@ void print_all(const char * const format, ...)
 				if (string == NULL)
 					/* Print "(nil)" for NULL strings, using the */
 					/* separator if needed */
-					printf("%s(nil)", separator);
-				else
-				{ /* Print the string, using the separator if needed */
-					printf("%s%s", separator, string);
-					break;
-				}
+					string = "(nil)";
+				/* Print the string, using the separator if needed */
+				printf("%s%s", separator, string);
+				break;
 			default:
-				break; /* Ignore any other format specifiers */
+				i++;
+				continue; /* Ignore any other format specifiers */
 		}
 		separator = ", "; /* Set the separator for subsequent values */
 		i++; /* Move to the next character in the format string */
