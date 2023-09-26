@@ -8,12 +8,13 @@ void free_listint2(listint_t **head)
 {
 	listint_t *latest; /* creating a pointer to traverse the list */
 
+	if (head == NULL || *head == NULL)
+		return; /* return if the head is NULL or the list is empty */
+
 	while (*head != NULL)
 	{
 		latest = *head; /* store current node */
 		*head = (*head)->next; /* update the head to poiint to the next node */
 		free(latest); /* free the memory of the current node */
 	}
-
-	head = NULL;
 }
