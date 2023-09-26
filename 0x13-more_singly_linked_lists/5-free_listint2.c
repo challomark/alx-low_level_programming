@@ -14,4 +14,6 @@ void free_listint2(listint_t **head)
 		*head = (*head)->next; /* update the head to poiint to the next node */
 		free(latest); /* free the memory of the current node */
 	}
+
+	head = NULL;
 }
