@@ -16,6 +16,9 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/* create temporary pointers to traverse list */
 	unsigned int a = 0; /* initialize variable to keep track of current index */
 
+	if (head == NULL) /* check if head is NULL*/
+		return (NULL);
+
 	n_node = malloc(sizeof(listint_t)); /* allocate mem for the new node */
 	if (n_node == NULL) /* check for malloc failure */
 		return (NULL);
@@ -46,7 +49,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		temporary = temporary->next; /* move to the next node */
 		a++; /* increment the current index */
 	}
-
 	free(n_node); /* free the new node if the desired index is not found */
 	return (NULL); /* return NULL if the desired index is not found */
 }
