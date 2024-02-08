@@ -10,14 +10,14 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	/* check if the input string is NULL */
-	if (b == NULL)
-		return (0);
-
 	unsigned int converted = 0; /* Initialize converted number to 0 */
 	unsigned int power_two = 1; /* Initialize the power of two to 2^0 */
 	int length = strlen(b); /* Get the length of the input string */
 	int c;
+
+	/* check if the input string is NULL */
+	if (b == NULL)
+		return (0);
 
 	/* Iterate thru the characters in the string from right to left */
 	for (c = length - 1; c >= 0; c--)
